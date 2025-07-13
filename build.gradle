@@ -1,0 +1,49 @@
+plugins {
+    id 'org.springframework.boot' version '3.3.3'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter Web
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.3'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    //lombok
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.19.1' // <- Fix this
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.19.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    // other dependencies...
+
+    //SQL
+    implementation "org.postgresql:postgresql"
+
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
+}
