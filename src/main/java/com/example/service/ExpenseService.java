@@ -6,11 +6,16 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ExpenseService {
-    List<Expense> getExpenseByDay(String day);
-    List<Expense> getExpenseByCategoryAndMonth(String category,String month);
-    List<String> getAllExpenseCategories();
-    Optional<Expense> getExpenseById(Long id); // New method to get an expense by ID
-    Expense addExpense(Expense expense);
-    boolean updateExpense(Expense expense);
-    boolean deleteExpense(Long expense);
+    List<Expense> getAllUserExpenses(Long userId);
+    List<Expense> getExpenseByDay(String day, Long userId);
+    List<Expense> getExpenseByCategoryAndMonth(String category, String month, Long userId);
+
+    List<String> getAllExpenseCategories();              // Optional - for all users
+    List<String> getAllExpenseCategories(Long userId);   // ✅ This is the one you're using
+
+    Optional<Expense> getExpenseById(Long id, Long userId);
+    Expense addExpense(Expense expense, Long userId);
+    boolean updateExpense(Expense expense, Long userId);
+    boolean deleteExpense(Long expense, Long userId);
 }
+

@@ -1,10 +1,8 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -32,4 +30,10 @@ public class Expense {
 
 
     private String note; // Additional notes or description of the expense or income
+
+    @ManyToOne(fetch = FetchType.LAZY)//user data loaded only when needed, also helps with performance
+    @JoinColumn(name = "user_id", nullable = false) // Foreign key to AppUser
+    @JsonIgnore//prevent circular reference during serialization
+    private AppUser user; // User associated with the expense or income
+
 }

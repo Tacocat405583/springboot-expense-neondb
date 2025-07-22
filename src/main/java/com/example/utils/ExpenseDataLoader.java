@@ -5,10 +5,12 @@ import com.example.service.ExpenseService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
@@ -21,6 +23,7 @@ import java.util.Optional;
 @RestController // cannot be component, it has to be a controller
 public class ExpenseDataLoader {
 
+    @Getter
     private static List<Expense> expenses = new ArrayList<>();
     private final ExpenseService expenseService;
 
@@ -39,14 +42,6 @@ public class ExpenseDataLoader {
 
 
     }
-    @GetMapping("expenses/{id}")
-    public ResponseEntity<Optional<Expense>> getExpenseById(@PathVariable Long id) {
-        return ResponseEntity.ok(expenseService.getExpenseById(id));
-    }
 
-
-    public static List<Expense> getExpenses() {
-        return expenses;
-    }
 
 }
