@@ -1,6 +1,6 @@
 # Expense Tracker - Spring Boot + Kotlin + NeonDB
 
-This is a simple cloud-connected expense tracking application built with **Spring Boot**, **Kotlin**, and **PostgreSQL** (hosted on **NeonDB**). It supports switching between a **JSON file-based** data source and a **PostgreSQL database** with Spring profiles.
+This is a simple cloud-connected expense tracking application built with **Spring Boot**, and **PostgreSQL** (hosted on **NeonDB**). It supports switching between a **JSON file-based** data source and a **PostgreSQL database** with Spring profiles.
 
 ---
 
@@ -17,7 +17,6 @@ This is a simple cloud-connected expense tracking application built with **Sprin
 ## Tech Stack
 
 - **Spring Boot 3**
-- **Kotlin**
 - **Spring Data JPA**
 - **NeonDB (PostgreSQL)**
 - **H2 (in-memory DB for development)**
